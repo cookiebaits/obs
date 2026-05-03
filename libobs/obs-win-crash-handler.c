@@ -310,7 +310,8 @@ static inline bool walk_stack(struct exception_handler_data *data, HANDLE thread
 		p = strrchr(module_info.name_utf8, '\\');
 		p = p ? (p + 1) : module_info.name_utf8;
 	} else {
-		strcpy(module_info.name_utf8, "<unknown>");
+		strncpy(module_info.name_utf8, "<unknown>", sizeof(module_info.name_utf8) - 1);
+		module_info.name_utf8[sizeof(module_info.name_utf8) - 1] = 0;
 		p = module_info.name_utf8;
 	}
 

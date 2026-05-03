@@ -1,0 +1,7 @@
+@OBSThemeMeta {
+    name: 'Default';
+    id: 'com.obsproject.Modern.Original';
+    extends: 'com.obsproject.Modern';
+    author: 'Warchamp7';
+    dark: 'true';
+}

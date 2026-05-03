@@ -756,7 +756,8 @@ char *os_generate_formatted_filename(const char *extension, bool space, const ch
 				replace_text(&sf, pos, 5, convert);
 
 			} else if (astrcmp_n(cmp, "%VF", 3) == 0) {
-				strcpy(convert, get_video_format_name(ovi.output_format));
+				strncpy(convert, get_video_format_name(ovi.output_format), sizeof(convert) - 1);
+				convert[sizeof(convert) - 1] = 0;
 				replace_text(&sf, pos, 3, convert);
 
 			} else if (astrcmp_n(cmp, "%s", 2) == 0) {

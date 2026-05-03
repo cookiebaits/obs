@@ -442,6 +442,7 @@ private:
 	QList<QPointer<QDockWidget>> extraCustomDocks;
 
 	QPointer<OBSDock> controlsDock;
+	QPointer<OBSDock> multiStreamDock;
 	QPointer<OBSDock> mixerDock;
 
 public:

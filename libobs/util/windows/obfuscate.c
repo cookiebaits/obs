@@ -32,7 +32,8 @@ static void deobfuscate_str(char *str, uint64_t val)
 void *ms_get_obfuscated_func(HMODULE module, const char *str, uint64_t val)
 {
 	char new_name[128];
-	strcpy(new_name, str);
+	strncpy(new_name, str, sizeof(new_name) - 1);
+	new_name[sizeof(new_name) - 1] = 0;
 	deobfuscate_str(new_name, val);
 	return GetProcAddress(module, new_name);
 }

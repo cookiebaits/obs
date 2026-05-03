@@ -295,7 +295,9 @@ static struct obs_data_item *obs_data_item_create(const char *name, const void *
 	char *name_ptr = get_item_name(item);
 	item->name = name_ptr;
 
-	strcpy(name_ptr, name);
+	size_t name_len = strlen(name);
+	strncpy(name_ptr, name, name_len);
+	name_ptr[name_len] = 0;
 	memcpy(get_item_data(item), data, size);
 
 	item_data_addref(item);

@@ -48,6 +48,7 @@
 #include <widgets/OBSProjector.hpp>
 
 #include <OBSStudioAPI.hpp>
+#include <docks/OBSMultiStreamDock.hpp>
 #ifdef BROWSER_AVAILABLE
 #include <browser-panel.hpp>
 #endif
@@ -355,6 +356,9 @@ OBSBasic::OBSBasic(QWidget *parent) : OBSMainWindow(parent), undo_s(ui), ui(new 
 
 	startingDockLayout = saveState();
 
+	multiStreamDock = new class OBSMultiStreamDock(this);
+	addDockWidget(Qt::RightDockWidgetArea, multiStreamDock);
+
 	statsDock = new OBSDock();
 	statsDock->setObjectName(QStringLiteral("statsDock"));
 	statsDock->setFeatures(QDockWidget::DockWidgetClosable | QDockWidget::DockWidgetMovable |
@@ -522,6 +526,7 @@ OBSBasic::OBSBasic(QWidget *parent) : OBSMainWindow(parent), undo_s(ui), ui(new 
 	SETUP_DOCK(ui->mixerDock);
 	SETUP_DOCK(ui->transitionsDock);
 	SETUP_DOCK(controlsDock);
+	SETUP_DOCK(multiStreamDock);
 	SETUP_DOCK(statsDock);
 #undef SETUP_DOCK
 

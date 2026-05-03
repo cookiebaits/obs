@@ -968,12 +968,12 @@ void OBSApp::themeFileChanged(const QString &path)
 }
 
 static map<string, string> themeMigrations = {
-	{"Yami", DEFAULT_THEME},
-	{"Grey", "com.obsproject.Yami.Grey"},
-	{"Rachni", "com.obsproject.Yami.Rachni"},
-	{"Light", "com.obsproject.Yami.Light"},
-	{"Dark", "com.obsproject.Yami.Classic"},
-	{"Acri", "com.obsproject.Yami.Acri"},
+	{"Modern", DEFAULT_THEME},
+	{"Grey", "com.obsproject.Modern.Grey"},
+	{"Rachni", "com.obsproject.Modern.Rachni"},
+	{"Light", "com.obsproject.Modern.Light"},
+	{"Dark", "com.obsproject.Modern.Classic"},
+	{"Acri", "com.obsproject.Modern.Acri"},
 	{"System", "com.obsproject.System"},
 };
 

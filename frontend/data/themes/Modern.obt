@@ -61,8 +61,8 @@
     --grey3: #464B59;
     --grey4: #3C404D;
     --grey5: #323540;
-    --grey6: #272A33;
-    --grey7: #1D1F26;
+    --grey6: #222329;
+    --grey7: #17181C;
     --grey8: #13141A;
 
     --white1: #FFFFFF;
@@ -82,11 +82,11 @@
     --bg_base: var(--grey6);
     --bg_preview: var(--grey8);
 
-    --primary: var(--blue3);
-    --primary_light: var(--blue2);
-    --primary_lighter: var(--blue1);
-    --primary_dark: var(--blue4);
-    --primary_darker: var(--blue5);
+    --primary: var(--teal3);
+    --primary_light: var(--teal2);
+    --primary_lighter: var(--teal1);
+    --primary_dark: var(--teal4);
+    --primary_darker: var(--teal5);
 
     --warning: var(--yellow3);
     --danger: var(--red3);
@@ -161,9 +161,9 @@
     /* Inputs / Controls */
     --border_color: var(--grey4);
 
-    --border_radius: 4px;
-    --border_radius_small: 2px;
-    --border_radius_large: 6px;
+    --border_radius: 8px;
+    --border_radius_small: 4px;
+    --border_radius_large: 12px;
 
     --input_font_scale: calc(var(--font_base_value) * 2.2);
     --input_font_padding: calc(var(--padding_base_value) * 2);

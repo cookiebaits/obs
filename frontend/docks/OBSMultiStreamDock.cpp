@@ -3,6 +3,8 @@
 #include <QDialogButtonBox>
 #include <QLabel>
 #include <util/bmem.h>
+#include <obs-frontend-api.h>
+#include "OBSApp.hpp"
 
 MultiStreamDestDialog::MultiStreamDestDialog(QWidget *parent)
 	: QDialog(parent)
@@ -130,9 +132,19 @@ void OBSMultiStreamDock::RemoveDestination()
 
 void OBSMultiStreamDock::StartStream()
 {
+	obs_output_t *main_output = obs_frontend_get_streaming_output();
+	if (!main_output) return;
+
+	obs_encoder_t *vencoder = obs_output_get_video_encoder(main_output);
+	obs_encoder_t *aencoder = obs_output_get_audio_encoder(main_output, 0);
+
 	for (auto &stream : streams) {
+		obs_output_set_video_encoder(stream.output, vencoder);
+		obs_output_set_audio_encoder(stream.output, aencoder, 0);
 		obs_output_start(stream.output);
 	}
+
+	obs_output_release(main_output);
 }
 
 void OBSMultiStreamDock::StopStream()

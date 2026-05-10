@@ -102,3 +102,15 @@ Open a Command Prompt or PowerShell terminal in the root of the cloned repositor
    cpack -G NSIS -C Release
 
 After CPack finishes running, the ``obs-studio-30.0.0-modified-windows.exe`` file will be generated and available in your ``build`` directory.
+
+Alternative: Automated GitHub Actions Build
+-------------------------------------------
+
+If you do not have Visual Studio or CMake installed, you can leverage GitHub Actions to build the Windows installer automatically.
+
+1. **Fork** this repository to your own GitHub account.
+2. Go to the **Actions** tab in your repository.
+3. Click "I understand my workflows, go ahead and enable them" if prompted.
+4. Select the **Build project** workflow on the left sidebar.
+5. Click the **Run workflow** dropdown on the right side and select the branch containing your changes.
+6. Once the build completes successfully, click into the workflow run and download the ``obs-studio-windows-x64-...`` artifact. The ``.zip`` file will contain your built installer.

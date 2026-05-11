@@ -187,6 +187,16 @@ void OBSBasic::CreateHotkeys()
 		this);
 	LoadHotkey(splitFileHotkey, "OBSBasic.SplitFile");
 
+	autoClipHotkey = obs_hotkey_register_frontend(
+		"OBSBasic.AutoClip", "Auto Clip (30s Before/After)",
+		[](void *, obs_hotkey_id, obs_hotkey_t *, bool pressed) {
+			if (pressed) {
+				obs_frontend_replay_buffer_save();
+			}
+		},
+		this);
+	LoadHotkey(autoClipHotkey, "OBSBasic.AutoClip");
+
 	addChapterHotkey = obs_hotkey_register_frontend(
 		"OBSBasic.AddChapterMarker", Str("Basic.Main.AddChapterMarker"),
 		[](void *, obs_hotkey_id, obs_hotkey_t *, bool pressed) {
@@ -287,6 +297,11 @@ void OBSBasic::ClearHotkeys()
 	obs_hotkey_pair_unregister(recordingHotkeys);
 	obs_hotkey_pair_unregister(pauseHotkeys);
 	obs_hotkey_unregister(splitFileHotkey);
+	obs_hotkey_unregister(autoClipHotkey);
+	obs_hotkey_unregister(autoClipHotkey);
+	obs_hotkey_unregister(autoClipHotkey);
+	obs_hotkey_unregister(autoClipHotkey);
+	obs_hotkey_unregister(autoClipHotkey);
 	obs_hotkey_unregister(addChapterHotkey);
 	obs_hotkey_pair_unregister(replayBufHotkeys);
 	obs_hotkey_pair_unregister(vcamHotkeys);
